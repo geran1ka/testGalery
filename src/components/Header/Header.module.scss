@@ -1,0 +1,22 @@
+.header {
+  padding: 20px 0;
+  background-color: rgb(161 140 129);
+}
+
+.container {
+  position: relative;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "logo profile"
+    "search search";
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (min-width: 580px) {
+    grid-template-columns: 50px 1fr max-content;
+    grid-template-areas: "logo search profile";
+  }
+}

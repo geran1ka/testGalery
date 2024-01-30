@@ -1,0 +1,69 @@
+.form {
+  grid-area: search;
+  position: relative;
+  max-width: 800px;
+  justify-self: center;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  padding: 10px 24px;
+  border-radius: 32px;
+  background-color: #eeeff2;
+  border: 1px solid transparent;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    border-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+
+  &::placeholder {
+    color: #3f4550;
+  }
+
+  &:focus-visible,
+  &:hover {
+    border-color: #dfe3eb;
+  }
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 24px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  outline-offset: 4px;
+  outline: 1px solid transparent;
+  border-radius: 4px;
+
+  transition:
+    outline 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+
+  &:hover,
+  &:active {
+    color: #780096;
+  }
+
+  &:focus-visible {
+    color: #780096;
+    outline-color: #780096;
+  }
+}
+
+.svg {
+  width: 16px;
+  height: 16px;
+}

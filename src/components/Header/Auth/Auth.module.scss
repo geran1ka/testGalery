@@ -1,0 +1,159 @@
+.authWrapper {
+  position: relative;
+  grid-area: profile;
+  justify-self: end;
+  min-width: 50px;
+}
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  gap: 10px;
+  overflow: hidden;
+  max-width: 150px;
+  width: 100%;
+  align-items: center;
+}
+
+.img {
+  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+
+  @media (min-width: 820px) {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.linkAuth {
+  display: block;
+  width: 30px;
+  height: 30px;
+  outline: 2px solid transparent;
+  border-radius: 50%;
+  outline-offset: 2px;
+  transition:
+    outline-color 0.3s ease-in-out,
+    transform 0.3 ease-in-out;
+
+  &:hover {
+    outline-color: red;
+  }
+
+  &:focus {
+    outline-color: white;
+  }
+
+  &:active {
+    outline-color: violet;
+    transform: scale(1.2);
+  }
+}
+
+.logout {
+  // position: absolute;
+  // top: 110%;
+  // right: 0;
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+  padding: 4px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+
+  @media (min-width: 580px) {
+    top: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  // .btn {
+  //   border-radius: 15px;
+  //   width: 50px;
+  //   height: 50px;
+  // }
+}
+
+.name {
+  display: block;
+  color: black;
+  font-size: 16px;
+  justify-self: end;
+}
+
+.menu {
+  z-index: 100;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  padding: 10px;
+  color: #fff;
+  background-color: rgb(161 140 129);
+  border: 1px solid #6d6969;
+  border-radius: 7px;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.active {
+  transform: translateY(0px);
+  opacity: 1;
+  visibility: visible;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  list-style-type: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+
+  @media (min-width: 820px) {
+    font-size: 16px;
+  }
+}
+
+.link {
+  color: #fff;
+  display: block;
+  width: 100%;
+  transition:
+    color 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+
+  &:hover {
+    color: black;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}

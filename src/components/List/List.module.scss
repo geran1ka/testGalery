@@ -1,0 +1,44 @@
+.myMasonryGrid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.myMasonryGridColumn {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.myMasonryGridColumn > li {
+  /* change div to reference your elements you put in <Masonry> */
+  // background: grey;
+  margin-bottom: 10px;
+}
+
+.li,
+.end {
+  list-style: none;
+}
+
+.favorite {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.title {
+  font-size: 26px;
+}
+
+.description {
+  font-size: 16px;
+
+  @media (min-width: 580px) {
+    font-size: 20px;
+  }
+}
