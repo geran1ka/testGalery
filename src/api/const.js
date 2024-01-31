@@ -2,7 +2,7 @@ export const API_URL_AUTH = "https://unsplash.com/oauth/authorize?";
 // export const REDIRECT_URI = "http://localhost:5173/auth";
 // export const REDIRECT_URI = "https://gallery-henna-gamma.vercel.app/auth";
 export const REDIRECT_URI =
-  "https://cheerful-starlight-0d5538.netlify.app//auth";
+  "https://cheerful-starlight-0d5538.netlify.app/auth";
 
 export const RESPONSE_TYPE = "code";
 export const SCOPE = "public read_user read_photos write_likes";
