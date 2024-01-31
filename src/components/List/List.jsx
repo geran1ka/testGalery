@@ -21,6 +21,7 @@ export const List = () => {
   const dispatch = useDispatch();
   const {
     page,
+    pageSearch,
     photos,
     loadingPhoto,
     loadingSearch,
@@ -38,7 +39,9 @@ export const List = () => {
     dispatch(changePage(params));
     if (params.pathname === "/") {
       dispatch(fetchPhotos());
-      console.log("dispatch(fetchPhotos()) changePage");
+    }
+    if (params.pathname === "/search") {
+      dispatch(fetchSearch(search));
     }
   }, [dispatch, params]);
 
@@ -57,7 +60,6 @@ export const List = () => {
         (entries) => {
           if (entries[0].isIntersecting) {
             dispatch(fetchPhotos());
-            console.log("dispatch(fetchPhotos()) IntersectionObserver");
           }
         },
         {
@@ -78,6 +80,7 @@ export const List = () => {
 
   useEffect(() => {
     if (params.pathname === "/search" && !loadingSearch) {
+      if (pageSearch < 2) return;
       const observer = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
