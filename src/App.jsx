@@ -23,6 +23,7 @@ const router = createBrowserRouter([
     path: "auth",
     element: (
       <>
+        <Header />
         <main>
           <AuthSuccess />
         </main>
