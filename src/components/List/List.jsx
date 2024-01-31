@@ -20,6 +20,7 @@ import { useAuth } from "../../hooks/useAuth";
 export const List = () => {
   const dispatch = useDispatch();
   const {
+    page,
     photos,
     loadingPhoto,
     loadingSearch,
@@ -35,6 +36,10 @@ export const List = () => {
 
   useEffect(() => {
     dispatch(changePage(params));
+    if (params.pathname === "/") {
+      dispatch(fetchPhotos());
+      console.log("dispatch(fetchPhotos()) changePage");
+    }
   }, [dispatch, params]);
 
   useEffect(() => {
@@ -45,10 +50,14 @@ export const List = () => {
 
   useEffect(() => {
     if (params.pathname === "/" && !loadingPhoto) {
+      console.log("page < 2: ", page < 2);
+      if (page < 2) return;
+
       const observer = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
             dispatch(fetchPhotos());
+            console.log("dispatch(fetchPhotos()) IntersectionObserver");
           }
         },
         {
