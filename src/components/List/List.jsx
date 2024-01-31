@@ -44,7 +44,7 @@ export const List = () => {
   }, [dispatch, auth, params.pathname]);
 
   useEffect(() => {
-    if (params.pathname === "/" && loadingPhoto) {
+    if (params.pathname === "/" && !loadingPhoto) {
       const observer = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
@@ -68,7 +68,7 @@ export const List = () => {
   }, [dispatch, endList.current, params.pathname, loadingPhoto]);
 
   useEffect(() => {
-    if (params.pathname === "/search" && loadingSearch) {
+    if (params.pathname === "/search" && !loadingSearch) {
       const observer = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
