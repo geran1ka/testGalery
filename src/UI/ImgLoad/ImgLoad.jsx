@@ -13,11 +13,17 @@ export const ImgLoad = ({ className, src, alt, width, height }) => {
   }, [src]);
 
   return loading ? (
-    <div className={s.wrapper} height={height} width={width}>
+    <div className={s.wrapper}>
       <img className={s.img} height={height} width={width} />
       <PostLoader />
     </div>
   ) : (
-    <img src={src} alt={alt} className={className} />
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      height={height}
+      width={width}
+    />
   );
 };

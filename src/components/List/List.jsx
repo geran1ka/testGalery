@@ -44,31 +44,52 @@ export const List = () => {
   }, [dispatch, auth, params.pathname]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          if (params.pathname === "/search") {
-            dispatch(fetchSearch(search));
-          }
-          if (params.pathname === "/") {
+    if (params.pathname === "/" && loadingPhoto) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
             dispatch(fetchPhotos());
           }
-        }
-      },
-      {
-        rootMargin: "200px",
-      },
-    );
-    if (endList.current && !loadingPhoto && !loadingSearch) {
-      observer.observe(endList.current);
-    }
-
-    return () => {
-      if (endList.current) {
-        observer.unobserve(endList.current);
+        },
+        {
+          rootMargin: "200px",
+        },
+      );
+      if (endList.current && !loadingPhoto) {
+        observer.observe(endList.current);
       }
-    };
-  }, [dispatch, endList.current, params.pathname]);
+
+      return () => {
+        if (endList.current) {
+          observer.unobserve(endList.current);
+        }
+      };
+    }
+  }, [dispatch, endList.current, params.pathname, loadingPhoto]);
+
+  useEffect(() => {
+    if (params.pathname === "/search" && loadingSearch) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            dispatch(fetchSearch(search));
+          }
+        },
+        {
+          rootMargin: "200px",
+        },
+      );
+      if (endList.current && !loadingSearch) {
+        observer.observe(endList.current);
+      }
+
+      return () => {
+        if (endList.current) {
+          observer.unobserve(endList.current);
+        }
+      };
+    }
+  }, [dispatch, endList.current, params.pathname, loadingSearch]);
 
   const breakpointColumnsObj = {
     default: 4,
