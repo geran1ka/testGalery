@@ -1,6 +1,7 @@
 export const API_URL_AUTH = "https://unsplash.com/oauth/authorize?";
 // export const REDIRECT_URI = "http://localhost:5173/auth";
-export const REDIRECT_URI = "https://tg-umber.vercel.app/auth";
+export const REDIRECT_URI =
+  "https://cheerful-starlight-0d5538.netlify.app/auth";
 // export const REDIRECT_URI = "https://glittery-duckanoo-f8a1c7.netlify.app/auth";
 
 export const RESPONSE_TYPE = "code";
